@@ -7,7 +7,7 @@ class Pawn
     @no_of_moves = 0
   end
 
-  def step_forward(new_loc)
+  def move(new_loc)
     # Check that the move is in the same column
     return false unless new_loc[0] == @location[0]
 

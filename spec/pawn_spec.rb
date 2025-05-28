@@ -4,19 +4,19 @@ require_relative '../lib/pawn'
 
 describe Pawn do
   let(:pawn) { described_class.new([1, 0]) }
-  describe '#step_forward' do
+  describe '#move' do
     context 'when a valid location is given' do
       it 'allows the player to move one step forward' do
-        expect(pawn.step_forward([1, 1])).to be true
+        expect(pawn.move([1, 1])).to be true
       end
 
       it 'changes the pawns location' do
-        pawn.step_forward([1, 1])
+        pawn.move([1, 1])
         expect(pawn.instance_variable_get(:@location)).to eq([1, 1])
       end
 
       it 'updates no_of_moves' do
-        pawn.step_forward([1, 1])
+        pawn.move([1, 1])
         expect(pawn.instance_variable_get(:@no_of_moves)).to eq(1)
       end
     end
@@ -26,11 +26,11 @@ describe Pawn do
         pawn.instance_variable_set(:@no_of_moves, 1)
       end
       it 'returns false' do
-        expect(pawn.step_forward([1, 2])).to be false
+        expect(pawn.move([1, 2])).to be false
       end
 
       it 'does not update the pawns location' do
-        pawn.step_forward([1, 2])
+        pawn.move([1, 2])
         expect(pawn.instance_variable_get(:@location)).to eq([1, 0])
       end
     end
@@ -40,7 +40,7 @@ describe Pawn do
         pawn.instance_variable_set(:@no_of_moves, 0)
       end
       it 'allows the player to move two steps forwards' do
-        expect(pawn.step_forward([1, 2])).to be true
+        expect(pawn.move([1, 2])).to be true
       end
     end
   end

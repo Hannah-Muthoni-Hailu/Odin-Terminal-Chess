@@ -3,7 +3,7 @@
 require_relative '../lib/rook'
 
 describe Rook do
-  let(:rook) { described_class.new([3, 3]) }
+  let(:rook) { described_class.new([3, 3], :black) }
   describe '#move' do
     it 'moves forward' do
       expect(rook.move([3, 5])).to be true

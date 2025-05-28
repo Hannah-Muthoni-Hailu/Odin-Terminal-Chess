@@ -2,8 +2,9 @@
 
 # Controls the game's rook
 class Rook
-  def initialize(location)
+  def initialize(location, type)
     @location = location
+    @type = type
   end
 
   def move(new_loc)

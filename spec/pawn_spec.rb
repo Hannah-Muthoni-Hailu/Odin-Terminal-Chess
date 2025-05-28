@@ -2,9 +2,9 @@
 
 require_relative '../lib/pawn'
 
-describe Pawn do
-  let(:pawn) { described_class.new([1, 0]) }
-  describe '#move' do
+describe Pawn do # rubocop:disable Metrics/BlockLength
+  let(:pawn) { described_class.new([1, 0], :black) }
+  describe '#move' do # rubocop:disable Metrics/BlockLength
     context 'when a valid location is given' do
       it 'allows the player to move one step forward' do
         expect(pawn.move([1, 1])).to be true

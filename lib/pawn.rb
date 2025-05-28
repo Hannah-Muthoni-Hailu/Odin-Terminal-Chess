@@ -2,8 +2,9 @@
 
 # Controls the pawn on the board
 class Pawn
-  def initialize(location)
+  def initialize(location, type)
     @location = location
+    @type = type
     @no_of_moves = 0
   end
 

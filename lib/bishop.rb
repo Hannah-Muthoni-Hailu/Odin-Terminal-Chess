@@ -2,8 +2,9 @@
 
 # Controls the bishop
 class Bishop
-  def initialize(location)
+  def initialize(location, type)
     @location = location
+    @type = type
   end
 
   def move(new_location)

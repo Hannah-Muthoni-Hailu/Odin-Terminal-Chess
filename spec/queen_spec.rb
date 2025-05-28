@@ -3,7 +3,7 @@
 require_relative '../lib/queen'
 
 describe Queen do
-  let(:queen) { described_class.new([3, 3]) }
+  let(:queen) { described_class.new([3, 3], :black) }
   describe '#move' do
     it 'moves forward' do
       expect(queen.move([3, 7])).to be true

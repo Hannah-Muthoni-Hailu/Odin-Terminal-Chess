@@ -3,7 +3,7 @@
 require_relative '../lib/king'
 
 describe King do
-  let(:king) { described_class.new([1, 1]) }
+  let(:king) { described_class.new([1, 1], :black) }
   describe '#move' do
     it 'allows the king to move one step in any direction' do
       expect(king.move([0, 0])).to be true

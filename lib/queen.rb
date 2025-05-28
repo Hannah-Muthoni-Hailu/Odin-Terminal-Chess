@@ -2,8 +2,9 @@
 
 # Controls the queen
 class Queen
-  def initialize(location)
+  def initialize(location, type)
     @location = location
+    @type = type
   end
 
   def move(new_location)

@@ -3,7 +3,7 @@
 require_relative '../lib/bishop'
 
 describe Bishop do
-  let(:bishop) { described_class.new([3, 3]) }
+  let(:bishop) { described_class.new([3, 3], :black) }
   describe '#move' do
     it 'moves across the top-right to bottom-left diagonal' do
       expect(bishop.move([4, 4])).to be true

@@ -14,4 +14,8 @@ class Rook
     end
     false
   end
+
+  def to_s
+    'R'.colorize(@type)
+  end
 end

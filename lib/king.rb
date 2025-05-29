@@ -14,4 +14,8 @@ class King
     end
     false
   end
+
+  def to_s
+    'K'.colorize(@type)
+  end
 end

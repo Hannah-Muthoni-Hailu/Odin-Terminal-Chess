@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'colorize'
+
 # Controls the pawn on the board
 class Pawn
   def initialize(location, type)
@@ -30,5 +32,9 @@ class Pawn
       return true
     end
     false
+  end
+
+  def to_s
+    'P'.colorize(@type)
   end
 end

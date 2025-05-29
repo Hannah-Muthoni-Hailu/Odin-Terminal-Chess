@@ -14,4 +14,8 @@ class Bishop
     end
     false
   end
+
+  def to_s
+    'B'.colorize(@type)
+  end
 end

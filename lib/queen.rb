@@ -15,4 +15,8 @@ class Queen
     end
     false
   end
+
+  def to_s
+    'Q'.colorize(@type)
+  end
 end

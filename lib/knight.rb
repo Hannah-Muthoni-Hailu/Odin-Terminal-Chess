@@ -27,4 +27,8 @@ class Knight
     children.push([node[0] - 1, node[1] + 2]) unless (node[0] - 1).negative? || node[1] + 2 > 7
     children
   end
+
+  def to_s
+    'N'.colorize(@type)
+  end
 end

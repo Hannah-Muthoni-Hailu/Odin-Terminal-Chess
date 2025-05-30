@@ -98,13 +98,15 @@ class Board
   end
 
   def display
-    puts ' :  1 2 3 4 5 6 7'
+    puts ' :  0 1 2 3 4 5 6'
 
     @board.each_with_index do |arr, index|
-      puts "#{index + 1}: |#{arr.join('|')}"
+      puts "#{index}: |#{arr.join('|')}"
     end
   end
-end
 
-board = Board.new
-board.display
+  def move(piece_loc, target_loc, player)
+    piece = @board[piece_loc[0]][piece_loc[1]]
+    piece.move(target_loc)
+  end
+end

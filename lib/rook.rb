@@ -2,6 +2,8 @@
 
 # Controls the game's rook
 class Rook
+  attr_accessor :location, :type
+
   def initialize(location, type)
     @location = location
     @type = type

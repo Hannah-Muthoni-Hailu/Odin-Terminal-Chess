@@ -2,6 +2,8 @@
 
 # Controls the knight
 class Knight
+  attr_accessor :location, :type
+
   def initialize(location, type)
     @location = location
     @type = type

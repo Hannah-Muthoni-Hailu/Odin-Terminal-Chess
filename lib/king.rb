@@ -2,6 +2,8 @@
 
 # Controls the king
 class King
+  attr_accessor :location, :type
+
   def initialize(location, type)
     @location = location
     @type = type

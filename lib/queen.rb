@@ -2,6 +2,8 @@
 
 # Controls the queen
 class Queen
+  attr_accessor :location, :type
+
   def initialize(location, type)
     @location = location
     @type = type

@@ -4,6 +4,8 @@ require 'colorize'
 
 # Controls the pawn on the board
 class Pawn
+  attr_accessor :location, :type
+
   def initialize(location, type)
     @location = location
     @type = type

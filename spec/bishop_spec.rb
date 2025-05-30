@@ -18,5 +18,10 @@ describe Bishop do
       bishop.move(new_loc)
       expect(bishop.instance_variable_get(:@location)).to eq(new_loc)
     end
+
+    it 'yields the locations as it steps through' do
+      new_location = [[2, 4], [1, 5]]
+      bishop.move([1, 5]) { |loc, ind| expect(loc).to eq(new_location[ind]) }
+    end
   end
 end

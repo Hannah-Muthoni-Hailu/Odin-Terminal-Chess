@@ -32,6 +32,11 @@ class Pawn
 
   def eat(target)
     if (target[1] == @location[1] + 1) && (target[0] == @location[0] - 1 || target[0] == @location[0] + 1)
+      until @location == target
+        @location[1] += 1
+        target[0] == @location[0] - 1 ? (@location[0] -= 1) : (@location[0] += 1)
+        yield @location if block_given?
+      end
       @location = target
       @no_of_moves += 1
       return true

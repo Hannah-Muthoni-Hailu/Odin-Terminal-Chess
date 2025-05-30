@@ -19,7 +19,10 @@ class Pawn
     # Check that the move is only one step forward
     # or is 2 steps forward if number of moves is zero
     if (@no_of_moves.zero? && new_loc[1] == @location[1] + 2) || new_loc[1] == @location[1] + 1
-      @location = new_loc
+      until @location == new_loc
+        @location[1] += 1
+        yield @location if block_given?
+      end
       @no_of_moves += 1
       true
     else

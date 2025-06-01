@@ -11,9 +11,9 @@ class Queen
 
   def move(new_location)
     if (new_location[0] == @location[0]) ^ (new_location[1] == @location[1])
-      return move_diag(new_location)
-    elsif (@location[0] - new_location[0]).abs == (@location[1] - new_location[1]).abs
       return move_straight(new_location)
+    elsif (@location[0] - new_location[0]).abs == (@location[1] - new_location[1]).abs
+      return move_diag(new_location)
     end
 
     false

@@ -105,8 +105,42 @@ class Board
     end
   end
 
-  def move(piece_loc, target_loc, player)
+  def play(piece_loc, target_loc)
     piece = @board[piece_loc[0]][piece_loc[1]]
-    piece.move(target_loc)
+    if !@board[target_loc[0]][target_loc[1]].is_a?(String) && (@board[target_loc[0]][target_loc[1]].type == piece.type)
+      return 'Invalid move'
+    end
+
+    res = move(piece, target_loc)
+
+    return 'Invalid move' unless res
+
+    @board[piece.location[0]][piece.location[1]] = piece
+    @board[piece_loc[0]][piece_loc[1]] = ' '
   end
+
+  def move(piece, target_loc)
+    # Check if piece is moving or eating
+    if @board[target_loc[0]][target_loc[1]] != ' '
+      # Piece is eating
+      res = if piece.is_a?(Pawn)
+              piece.eat(target_loc) do |loc|
+                return 'Invalid move!' if @board[loc[0]][loc[1]] != ' ' && loc != target_loc
+              end
+            else
+              piece.move(target_loc) do |loc|
+                return 'Invalid move!' if @board[loc[0]][loc[1]] != ' ' && loc != target_loc
+              end
+            end
+
+      @board[target_loc[0]][target_loc[1]] = ' '
+    else
+      res = piece.move(target_loc) do |loc|
+        return 'Invalid move!' if @board[loc[0]][loc[1]] != ' ' && loc != target_loc
+      end
+    end
+    res
+  end
+
+  def check; end
 end
